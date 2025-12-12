@@ -1,1 +1,114 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+//*google-fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+// Değişkenler
+$font-family: "Roboto", sans-serif;
+$transition-speed: 0.3s;
+$mobile: 576px;
+$tablet: 768px;
+
+// Renkler
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$accent-color: #17a2b8;
+$error-color: #dc3545;
+$light-text: #ffffff;
+
+// Light mode değişkenleri
+$bg-color-light: #f4f7fa;
+$text-color-light: #333333; // SCSS değişkeni olarak tanımlı
+$card-bg-light: #ffffff;
+$box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+$hover-shadow-light: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+// Dark mode değişkenleri
+$bg-color-dark: #1a1a1a;
+$text-color-dark: #e0e0e0; // SCSS değişkeni olarak tanımlı
+$card-bg-dark: #2c2c2c;
+$box-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+$hover-shadow-dark: 0 6px 12px rgba(0, 0, 0, 0.4);
+
+// CSS değişkenlerini kök seviyesinde tanımlama
+:root {
+  --bg-color: #{$bg-color-light};
+  --text-color: #{$text-color-light};
+  --card-background: #{$card-bg-light};
+  --box-shadow: #{$box-shadow-light};
+  --hover-shadow: #{$hover-shadow-light};
+}
+
+[data-theme="dark"] {
+  --bg-color: #{$bg-color-dark};
+  --text-color: #{$text-color-dark};
+  --card-background: #{$card-bg-dark};
+  --box-shadow: #{$box-shadow-dark};
+  --hover-shadow: #{$hover-shadow-dark};
+}
+
+@import "./reset.scss";
+
+body {
+  font-family: $font-family;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color $transition-speed ease,
+    color $transition-speed ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 20px;
+
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h1 {
+      color: $primary-color;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .search-box {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+
+      input {
+        flex: 1;
+        padding: 0.8 rem 1rem;
+        border: 2px solid $primary-color;
+        border-radius: 50px 0 0 50px;
+        font-size: 1rem;
+        border-right: none;
+        background: var(--card-background);
+        color: var(--text-color);
+        transition: var(--card-background) $transition-speed ease,
+          color $transition-speed ease;
+
+        //*placeholder: inputun içindeki yazı*/
+        //* color: yazının rengi*/
+        &::placeholder {
+          color: lighteen($text-color-light, 40%);
+        }
+        //*dark mode için yazının rengini değiştirmek için*/
+        [data-theme="dark"] & {
+          color: lighten($text-color-dark, 40%);
+        }
+      }
+
+      button {
+        background-color: $primary-color;
+        color: $light-text;
+        padding: 0 1.5rem;
+        border-radius: 0 50px 50px 0;
+        //*transition: butonun üzerine gelince arka plan renginin değişmesi*/
+        transition: background-color $transition-speed ease;
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+}
