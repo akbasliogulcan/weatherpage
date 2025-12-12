@@ -5,12 +5,42 @@
            <meta charset="UTF-8">
            <meta name="viewport" content="width=device-width, initial-scale=1.0">
            <title>Hava durumu uygulaması</title>
+           <!-- css link -->
            <link rel="stylesheet" href="styles.css">
+           <!-- font awesome -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+                      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+                      crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 
+           <!-- Container         -->
+           <div class="container">
+                      <header>
+                                 <h1>Hava Durumu Uygulaması</h1>
+                                 <div class="theme-toggle">
+                                            <button><i class="fa-solid fa-moon"></i></button>
+                                 </div>
+                                 <div class="search-box">
+                                            <input type="search" placeholder="Şehir ara..." id="location-input"
+                                                       list="turkish-cities">
 
+                                            <datalist id="turkish-cities">
+                                                       <!-- Js ile yapılacak -->
+                                                       <!-- <option>A</option>
+                                                       <option>B</option>
+                                                       <option>C</option>
+                                                       <option>D</option> -->
+
+                                            </datalist>
+
+                                            <button type="submit" id="search-btn"><i
+                                                                  class="fa-solid fa-magnifying-glass"></i></button>
+                                 </div>
+                      </header>
+
+           </div>
 
 
 
