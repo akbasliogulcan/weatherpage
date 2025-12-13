@@ -46,6 +46,7 @@ $hover-shadow-dark: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 @import "./reset.scss";
+@import "./weather.scss";
 
 body {
   font-family: $font-family;

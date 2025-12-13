@@ -1,0 +1,23 @@
+.weather-container {
+  padding-top: 2rem;
+  transition: all $transition-speed ease;
+
+  .weather-card {
+    background-color: var(--card-background);
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+    padding: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    transition: all $transition-speed ease, box-shadow $transition-speed ease,
+      background-color $transition-speed ease;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+  }
+
+  .weather-header {
+    margin-bottom: 1.5rem;
+  }
+}

@@ -35,6 +35,27 @@ img {
   display: none !important;
 }
 
+.weather-container {
+  padding-top: 2rem;
+  transition: all 0.3s ease;
+}
+.weather-container .weather-card {
+  background-color: var(--card-background);
+  box-shadow: var(--box-shadow);
+  border-radius: 15px;
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+  transition: all 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.weather-container .weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+.weather-container .weather-header {
+  margin-bottom: 1.5rem;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--bg-color);
