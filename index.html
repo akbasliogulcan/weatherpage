@@ -20,7 +20,7 @@
                       <header>
                                  <h1>Hava Durumu</h1>
                                  <div class="theme-toggle">
-                                            <button><i class="fa-solid fa-moon"></i></button>
+                                            <button id="theme-toggle-btn"><i class="fa-solid fa-moon"></i></button>
                                  </div>
                                  <div class="search-box">
                                             <input type="search" placeholder="Şehir ara..." id="location-input"
@@ -39,6 +39,76 @@
                                                                   class="fa-solid fa-magnifying-glass"></i></button>
                                  </div>
                       </header>
+
+                      <!-- *Error -->
+                      <div class="error-message" id="error-message">
+                                 <p>Şehir bulunamadı! Lütfen başka bir şehir deneyin.</p>
+                      </div>
+
+                      <!-- *Loader -->
+                      <div class="loader-container" id="loader">
+                                 <div class="loader"></div>
+                      </div>
+
+                      <!-- *weather container -->
+                      <div class="weather-container hidden" id="weather-container">
+
+                                 <div class="weather-card">
+                                            <div class="weather-header">
+                                                       <div class="location-info">
+                                                                  <h2 id="location">Konya</h2>
+                                                                  <div class="country-flag">
+                                                                             <img src="https://flagcdn.com/w80/tr.png"
+                                                                                        alt="flag">
+                                                                  </div>
+                                                       </div>
+                                                       <p id="date">tarihhh</p>
+                                            </div>
+
+
+                                            <div class="weather-info">
+                                                       <!-- Temprature -->
+                                                       <div class="temperature">
+                                                                  <h3 id="temperature">15 derece </h3>
+                                                                  <p id="feel-like">Açık</p>
+                                                       </div>
+                                                       <!-- Weather Icon -->
+                                                       <div class="weather-icon">
+                                                                  <img src="" alt="icon">
+                                                                  <p id="weather-description">Az bulutlu</p>
+                                                       </div>
+                                            </div>
+
+                                            <div class="weather-details">
+                                                       <!-- Wind -->
+                                                       <div class="detail">
+                                                                  <i class="fas fa-wind"></i>
+                                                                  <div>
+                                                                             <p>Rüzgar Hızı</p>
+                                                                             <p id="wind-speed">2.06 m/s</p>
+                                                                  </div>
+                                                       </div>
+                                                       <!-- Humidity -->
+                                                       <div class="detail">
+                                                                  <i class="fas fa-tint"></i>
+                                                                  <div>
+                                                                             <p>Nem</p>
+                                                                             <p id="humidity">81%</p>
+                                                                  </div>
+                                                       </div>
+                                                       <!-- Pressure -->
+                                                       <div class="detail">
+                                                                  <i class="fas fa-compress-arrows-alt"></i>
+                                                                  <div>
+                                                                             <p>Basınç</p>
+                                                                             <p id="pressure">1016 hPa</p>
+                                                                  </div>
+                                                       </div>
+                                            </div>
+                                 </div>
+
+                      </div>
+           </div>
 
            </div>
 
