@@ -194,8 +194,8 @@ body {
   transition: var(--card-background) 0.3s ease, color 0.3s ease;
 }
 .container header .search-box input::placeholder {
-  padding: 0.8rem 2rem;
-  color: lighteen(#333333, 40%);
+  padding: 8rem 2rem;
+  color: ligheen(#333333, 40%);
 }
 [data-theme=dark] .container header .search-box input {
   color: white;

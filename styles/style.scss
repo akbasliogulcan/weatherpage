@@ -110,8 +110,8 @@ body {
         //*placeholder: inputun içindeki yazı*/
         //* color: yazının rengi*/
         &::placeholder {
-          padding: 0.8rem 2rem;
-          color: lighteen($text-color-light, 40%);
+          padding: 8rem 2rem;
+          color: ligheen($text-color-light, 40%);
         }
         //*dark mode için yazının rengini değiştirmek için*/
         [data-theme="dark"] & {
