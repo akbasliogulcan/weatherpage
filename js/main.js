@@ -1,6 +1,6 @@
 
 import { getFlagUrl, getWeather } from "./api.js";
-import { elements } from "./ui.js";
+import { displayWeather, elements } from "./ui.js";
 
 //*Hava durumu verilerini alalım */
 // const data = await getWeather("Konya");
@@ -13,7 +13,8 @@ elements.form.addEventListener("submit", async (e) => {
            e.preventDefault();
            const query = (e.target[0].value);
            const weatherData = await getWeather(query);
+           console.log(weatherData);
            const flagUrl = getFlagUrl(weatherData.sys.country);
-           console.log(flagUrl);
+           displayWeather(weatherData, flagUrl);
 });
 

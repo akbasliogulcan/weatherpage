@@ -14,6 +14,7 @@ const getWeather = async (city) => {
                       const response = await fetch(`${baseUrl}?q=${city}&appid=${apiKey}&units=metric`);
 
                       const weatherData = await response.json();
+                      console.log(weatherData);
 
 
                       if (!response.ok) {
