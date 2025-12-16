@@ -11,10 +11,9 @@ const getFlagUrl = (countryCode) =>
 //*Hava durumu verilerini alan Fonks.
 const getWeather = async (city) => {
            try {
-                      const response = await fetch(`${baseUrl}?q=${city}&appid=${apiKey}&units=metric`);
+                      const response = await fetch(`${baseUrl}?q=${city}&appid=${apiKey}&units=metric&lang=tr`);
 
                       const weatherData = await response.json();
-                      console.log(weatherData);
 
 
                       if (!response.ok) {
