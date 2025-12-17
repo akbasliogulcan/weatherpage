@@ -14,7 +14,9 @@ const elements = {
            humidity: document.querySelector('#humidity'),
            pressure: document.querySelector('#pressure'),
            citiesDatalist: document.querySelector('#turkish-cities'),
-           errorMessage: document.querySelector('#error-message')
+           errorMessage: document.querySelector('#error-message'),
+           themeBtn: document.querySelector('#theme-toggle-btn'),
+
 
 };
 

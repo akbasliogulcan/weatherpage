@@ -4,9 +4,48 @@ import cities from "./constant.js";
 import { displayWeather, elements, hideLoader, showLoader, showError, hideError } from "./ui.js";
 
 
+//*Body elementini seç
+const body = document.body;
+
+//* 1) Tema Attribute. localStorage’da kayıtlı bir tema varsa onu al, yoksa "light" kullan
+const savedTheme = localStorage.getItem('theme') || "light";
+
+
+//* 2) Body'e tema attribute ekle .Seçilen temayı body'e yaz
+//* savedTheme → “Kullanılacak tema”    data-theme → “HTML’ye bildir”
+body.setAttribute("data-theme", savedTheme);
+
+
+
+
+
+
 //*Sayfa yüklendiğinde şehirleri datalist'e ekle
 document.addEventListener("DOMContentLoaded", () => {
+
+           //*Şehirleri datalist'e ekle
            createOption(cities);
+
+
+           let newTheme;
+
+           //*Dark/Light tema butonunu ayarla
+           //*Tema değiştirme butonuna tıklanınca çalışacak event listener
+           elements.themeBtn.addEventListener("click", () => {
+
+                      //*Mevcut temayı al */
+                      const currentTheme = body.getAttribute("data-theme");
+
+                      //*Yeni temayı belirle */        
+                      newTheme = currentTheme === "light" ? "dark" : "light";
+
+                      body.setAttribute("data-theme", newTheme);
+
+           });
+
+           localStorage.setItem("data-theme", newTheme);
+
+
 
 });
 
@@ -50,8 +89,12 @@ elements.form.addEventListener("submit", async (e) => {
 
            }
 
-           //*loeaderı gizle
-           hideLoader();
+           finally {
+                      //*loeaderı gizle
+                      hideLoader();
+           }
+
+
 
 
 
@@ -61,7 +104,6 @@ elements.form.addEventListener("submit", async (e) => {
 
 
 //*Şehirleri gösteren fonksiyon
-
 const createOption = (cities) => {
            //*dışarıdan verilen cities dizisini dön ve herbir dizi elemanı için option oluştur.
            cities.forEach(city => {
@@ -77,4 +119,7 @@ const createOption = (cities) => {
 
            });
 };
+
+
+
 
