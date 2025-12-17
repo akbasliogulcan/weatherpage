@@ -13,6 +13,9 @@ const elements = {
            windSpeed: document.querySelector('#wind-speed'),
            humidity: document.querySelector('#humidity'),
            pressure: document.querySelector('#pressure'),
+           citiesDatalist: document.querySelector('#turkish-cities'),
+           errorMessage: document.querySelector('#error-message')
+
 };
 
 //*Loaderı gösteren fonksiyon
@@ -25,6 +28,18 @@ const showLoader = () => {
 const hideLoader = () => {
            elements.loader.style.display = 'none';
 }
+
+//*Error mesajını gösteren fonksiyon
+const showError = (message) => {
+           elements.errorMessage.classList.add("show");
+
+};
+
+//*Error mesajını gizleyen fonksiyon
+const hideError = (message) => {
+           elements.errorMessage.classList.remove("show");
+};
+
 
 //*apiden gelen hava durumu verisi ve bayrak ile arayüzü renderlayan fonksiyon
 const displayWeather = (data, flagUrl) => {
@@ -65,5 +80,5 @@ const displayWeather = (data, flagUrl) => {
            elements.pressure.textContent = ` ${data.main.pressure} hPa`;
 
 };
-export { elements, displayWeather, showLoader, hideLoader };
+export { elements, displayWeather, showLoader, hideLoader, showError, hideError };
 
