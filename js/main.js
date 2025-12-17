@@ -4,7 +4,9 @@ import cities from "./constant.js";
 import { displayWeather, elements, hideLoader, showLoader, showError, hideError } from "./ui.js";
 
 
-//*Body elementini seç
+
+//*******************************Tema Ayarı ***************************************/
+//*Body elementini seç (Clean code için değişkene atadık)
 const body = document.body;
 
 //* 1) Tema Attribute. localStorage’da kayıtlı bir tema varsa onu al, yoksa "light" kullan
@@ -15,12 +17,11 @@ const savedTheme = localStorage.getItem('theme') || "light";
 //* savedTheme → “Kullanılacak tema”    data-theme → “HTML’ye bildir”
 body.setAttribute("data-theme", savedTheme);
 
+//*******************************Tema Ayarı ***************************************/
 
 
 
-
-
-//*Sayfa yüklendiğinde şehirleri datalist'e ekle
+//*DOMContentLoaded eventi, HTML belgesi tamamen yüklendiğinde ve ayrıştırıldığında tetiklenir
 document.addEventListener("DOMContentLoaded", () => {
 
            //*Şehirleri datalist'e ekle
@@ -33,17 +34,23 @@ document.addEventListener("DOMContentLoaded", () => {
            //*Tema değiştirme butonuna tıklanınca çalışacak event listener
            elements.themeBtn.addEventListener("click", () => {
 
+                      let newTheme;
+
                       //*Mevcut temayı al */
                       const currentTheme = body.getAttribute("data-theme");
 
                       //*Yeni temayı belirle */        
                       newTheme = currentTheme === "light" ? "dark" : "light";
 
+                      //*Yeni temayı body'e uygula */
                       body.setAttribute("data-theme", newTheme);
+
+                      //*Yeni temayı localStorage'a kaydet */
+                      localStorage.setItem("data-theme", newTheme);
 
            });
 
-           localStorage.setItem("data-theme", newTheme);
+
 
 
 
