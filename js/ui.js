@@ -18,6 +18,7 @@ const elements = {
            themeBtn: document.querySelector('#theme-toggle-btn'),
 
 
+
 };
 
 //*Loaderı gösteren fonksiyon
@@ -82,5 +83,17 @@ const displayWeather = (data, flagUrl) => {
            elements.pressure.textContent = ` ${data.main.pressure} hPa`;
 
 };
-export { elements, displayWeather, showLoader, hideLoader, showError, hideError };
+
+//*theme iconunu güncelleyen fonks.
+const updateThemeIcon = (theme) => {
+
+           //*icona eriş
+           const icon = elements.themeBtn.querySelector("i");
+
+           //*icon değişiklikleri
+           icon.className = theme == 'light' ? "fa-solid fa-moon" : "fa-solid fa-sun";
+
+}
+
+export { elements, displayWeather, showLoader, hideLoader, showError, hideError, updateThemeIcon };
 

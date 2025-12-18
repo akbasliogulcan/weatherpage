@@ -1,7 +1,7 @@
 
 import { getFlagUrl, getWeather } from "./api.js";
 import cities from "./constant.js";
-import { displayWeather, elements, hideLoader, showLoader, showError, hideError } from "./ui.js";
+import { displayWeather, elements, hideLoader, showLoader, showError, hideError, updateThemeIcon } from "./ui.js";
 
 
 
@@ -11,6 +11,7 @@ const body = document.body;
 
 //* 1) Tema Attribute. localStorage’da kayıtlı bir tema varsa onu al, yoksa "light" kullan
 const savedTheme = localStorage.getItem('theme') || "light";
+
 
 
 //* 2) Body'e tema attribute ekle .Seçilen temayı body'e yaz
@@ -28,16 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
            createOption(cities);
 
 
-           let newTheme;
 
            //*Dark/Light tema butonunu ayarla
            //*Tema değiştirme butonuna tıklanınca çalışacak event listener
            elements.themeBtn.addEventListener("click", () => {
 
-                      let newTheme;
+
 
                       //*Mevcut temayı al */
                       const currentTheme = body.getAttribute("data-theme");
+
+                      let newTheme;
 
                       //*Yeni temayı belirle */        
                       newTheme = currentTheme === "light" ? "dark" : "light";
@@ -48,6 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
                       //*Yeni temayı localStorage'a kaydet */
                       localStorage.setItem("data-theme", newTheme);
 
+
+                      //*iconu güncelle
+                      updateThemeIcon(newTheme);
+
            });
 
 
@@ -56,7 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-//*Form gönderdildiğinde çalışacak event listener
+
+//*Form gönderdildiğinde çalışacak event listener api çağrısı yapar
 elements.form.addEventListener("submit", async (e) => {
 
 
